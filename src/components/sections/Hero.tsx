@@ -6,6 +6,7 @@ import { SmartImage } from '../ui/SmartImage'
 import { MagneticButton } from '../ui/MagneticButton'
 import { navigate } from '../layout/Navbar'
 import { CallButton } from '../ui/CallButton'
+import { BID_LABEL, SITE, telHref } from '../../lib/site'
 
 const TICKER = ['Custom Homes', 'Remodeling', 'Decks & Patios', 'Concrete', 'Excavation', 'Bobcat Work', 'Light Hauling', 'Landscaping', 'Fencing', 'Land Grading']
 
@@ -58,7 +59,7 @@ export function Hero() {
     <section ref={root} id="home" className="grain relative flex min-h-[100svh] flex-col overflow-hidden bg-ink" aria-label="Introduction">
       <div className="hero-bg absolute inset-0 will-change-transform">
         <div className="hero-bg-inner absolute -inset-8">
-          <SmartImage photo={IMG.houseFraming} width={2000} alt="Wood-framed house under construction" eager className="h-full w-full" imgClassName="opacity-70" />
+          <SmartImage photo={IMG.houseFraming} width={2000} alt="Wood-framed house under construction" eager fetchPriority="high" className="h-full w-full" imgClassName="opacity-70" />
         </div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/35 to-ink" />
@@ -67,32 +68,35 @@ export function Hero() {
       <div
         ref={spot}
         aria-hidden
-        className="pointer-events-none absolute left-0 top-0 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,90,31,0.18),transparent_65%)] mix-blend-screen"
+        className="pointer-events-none absolute left-0 top-0 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(209,31,38,0.18),transparent_65%)] mix-blend-screen"
       />
       <div className="hero-shade pointer-events-none absolute inset-0 bg-ink opacity-0" />
 
-      <div className="container-x relative z-10 flex flex-1 flex-col justify-end pb-28 pt-36 md:pb-32">
-        <div className="hero-meta hero-fade mb-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+      <div className="container-x relative z-10 flex flex-1 flex-col justify-end pb-20 pt-28 sm:pb-28 sm:pt-36 md:pb-32">
+        <div className="hero-meta hero-fade mb-6 flex sm:mb-8 flex-wrap items-center gap-x-6 gap-y-2">
           <span className="eyebrow flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-orange" /> K&amp;C Construction · Waterloo, Illinois
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" /> K&amp;S Construction · Waterloo, Illinois
           </span>
           <span className="eyebrow hidden sm:inline">Second generation owned &amp; operated · Licensed &amp; insured</span>
         </div>
-        <h1 className="hero-title font-display-x text-[clamp(2.6rem,9.5vw,9.5rem)] font-black uppercase text-bone">
+        <h1 className="hero-title font-display-x text-[clamp(2.15rem,9.5vw,9.5rem)] [@media(max-height:520px)]:text-[clamp(2rem,6.5vw,4.2rem)] font-black uppercase text-bone">
           <span className="line-mask"><span className="hero-line">Built for</span></span>
-          <span className="line-mask"><span className="hero-line">your home<span className="text-orange">.</span></span></span>
+          <span className="line-mask"><span className="hero-line">your home<span className="text-brand-bright">.</span></span></span>
           <span className="line-mask"><span className="hero-line text-stroke">Built to last.</span></span>
         </h1>
-        <div className="hero-rule mt-10 h-px w-full bg-bone/20" />
-        <div className="hero-meta mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <p className="hero-fade max-w-xl text-lg leading-relaxed text-bone/75 md:text-xl">
+        <div className="hero-rule mt-6 h-px sm:mt-10 w-full bg-bone/20" />
+        <div className="hero-meta mt-6 flex flex-col gap-6 sm:mt-8 sm:gap-8 md:flex-row md:items-end md:justify-between">
+          <p className="hero-fade max-w-xl text-base leading-relaxed text-bone/75 sm:text-lg md:text-xl">
             Family-owned residential construction, remodeling and outdoor improvements in Waterloo, Illinois — from excavation and concrete to decks, fencing and landscaping.
           </p>
           <div className="hero-fade flex flex-wrap gap-3">
             <CallButton />
-            <MagneticButton href="#services" variant="ghost" onClick={(e) => navigate(e, '#services')}>
-              Our Services <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:rotate-45" />
+            <MagneticButton href="#contact" variant="ghost" onClick={(e) => navigate(e, '#contact')}>
+              {BID_LABEL} <ArrowUpRight size={18} className="transition-transform duration-300 group-hover:rotate-45" />
             </MagneticButton>
+            <a href={telHref} className="w-full font-mono text-sm tracking-wider text-bone/70 transition-colors hover:text-brand-bright">
+              {SITE.phone} · Waterloo, IL
+            </a>
           </div>
         </div>
       </div>
@@ -105,7 +109,7 @@ export function Hero() {
       >
         <span className="eyebrow [writing-mode:vertical-rl]">Scroll</span>
         <span className="relative h-12 w-7 rounded-full border border-bone/40">
-          <span className="animate-scroll-dot absolute left-1/2 top-2 h-2 w-1 -translate-x-1/2 rounded-full bg-orange" />
+          <span className="animate-scroll-dot absolute left-1/2 top-2 h-2 w-1 -translate-x-1/2 rounded-full bg-brand" />
         </span>
         <ArrowDown size={14} className="text-bone/60" />
       </a>
@@ -114,7 +118,7 @@ export function Hero() {
         <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
           {[...TICKER, ...TICKER].map((t, i) => (
             <span key={i} className="flex items-center gap-10 font-mono text-xs uppercase tracking-[0.3em] text-bone/55">
-              {t} <span className="h-1 w-1 rotate-45 bg-orange" />
+              {t} <span className="h-1 w-1 rotate-45 bg-brand" />
             </span>
           ))}
         </div>

@@ -2,7 +2,7 @@ import { ArrowUp, ArrowUpRight, AtSign, Globe, Rss, Share2 } from 'lucide-react'
 import { NAV_LINKS, Logo, navigate } from './Navbar'
 import { SERVICE_CATEGORIES } from '../../data/services'
 import { CallButton } from '../ui/CallButton'
-import { SITE } from '../../lib/site'
+import { BID_LABEL, SITE, telHref } from '../../lib/site'
 import { scrollToTarget } from '../../lib/smoothScroll'
 
 const SOCIAL = [
@@ -18,14 +18,14 @@ export function Footer() {
       <div className="container-x">
         <div className="flex flex-col gap-10 border-b border-white/[0.07] pb-16 md:flex-row md:items-end md:justify-between">
           <p className="font-display-x max-w-3xl text-[clamp(2rem,5vw,4.2rem)] font-black uppercase leading-[0.95]">
-            Have a project in mind<span className="text-orange">?</span>
+            Have a project in mind<span className="text-brand-bright">?</span>
           </p>
           <CallButton className="!px-8 !py-5 text-base" />
         </div>
 
         <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo />
+            <Logo className="h-24 sm:h-28" sizes="180px" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-bone/55">{SITE.tagline} Based in {SITE.city}, {SITE.region}.</p>
             <ul className="mt-8 flex gap-2" aria-label="Social media (placeholders)">
               {SOCIAL.map(({ label, icon: Icon }) => (
@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="space-y-3">
               {NAV_LINKS.map((l) => (
                 <li key={l.href}>
-                  <a href={l.href} onClick={(e) => navigate(e, l.href)} className="text-sm text-bone/70 transition-colors hover:text-orange">
+                  <a href={l.href} onClick={(e) => navigate(e, l.href)} className="text-sm text-bone/70 transition-colors hover:text-brand-bright">
                     {l.label}
                   </a>
                 </li>
@@ -59,7 +59,7 @@ export function Footer() {
             <ul className="space-y-3">
               {SERVICE_CATEGORIES.map((c) => (
                 <li key={c}>
-                  <a href="#services" onClick={(e) => navigate(e, '#services')} className="text-sm text-bone/70 transition-colors hover:text-orange">
+                  <a href="#services" onClick={(e) => navigate(e, '#services')} className="text-sm text-bone/70 transition-colors hover:text-brand-bright">
                     {c}
                   </a>
                 </li>
@@ -68,26 +68,26 @@ export function Footer() {
           </div>
           <div className="lg:col-span-3">
             <p className="eyebrow mb-5">Start a project</p>
-            <p className="text-sm leading-relaxed text-bone/60">Call for a bid, or share your plans through the bid request form.</p>
-            <a href="#contact" onClick={(e) => navigate(e, '#contact')} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-orange hover:underline">
-              Request a bid online <ArrowUpRight size={16} />
+            <p className="text-sm leading-relaxed text-bone/60">Call <a href={telHref} className="font-semibold text-bone hover:text-brand-bright">{SITE.phone}</a> for a bid, or send your plans through the form.</p>
+            <a href="#contact" onClick={(e) => navigate(e, '#contact')} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-bright hover:underline">
+              {BID_LABEL} <ArrowUpRight size={16} />
             </a>
           </div>
         </div>
       </div>
 
       <div className="pointer-events-none select-none overflow-hidden" aria-hidden>
-        <p className="font-display-x translate-y-[18%] whitespace-nowrap text-center text-[22vw] font-black uppercase leading-none text-bone/[0.04]">K&amp;C Build</p>
+        <p className="font-display-x translate-y-[18%] whitespace-nowrap text-center text-[22vw] font-black uppercase leading-none text-bone/[0.04]">K&amp;S Build</p>
       </div>
 
       <div className="border-t border-white/[0.07]">
         <div className="container-x flex flex-col items-center justify-between gap-4 py-6 text-xs text-bone/45 sm:flex-row">
-          <p>© {new Date().getFullYear()} K&amp;C Construction. All rights reserved.</p>
-          <p className="text-center">Project images are illustrative stock photography (Unsplash), not K&amp;C job photos.</p>
+          <p>© {new Date().getFullYear()} K&amp;S Construction. All rights reserved.</p>
+          <p className="text-center">Project images are illustrative stock photography (Unsplash), not K&amp;S job photos.</p>
           <button
             type="button"
             onClick={() => scrollToTarget(0)}
-            className="group inline-flex items-center gap-2 rounded-full border border-bone/15 px-4 py-2 text-bone/70 transition hover:border-orange hover:text-orange"
+            className="group inline-flex items-center gap-2 rounded-full border border-bone/15 px-4 py-2 text-bone/70 transition hover:border-brand hover:text-brand-bright"
           >
             Back to top <ArrowUp size={14} className="transition-transform group-hover:-translate-y-0.5" />
           </button>

@@ -61,7 +61,7 @@ export function Building({ quality }: { quality: 'high' | 'low' }) {
   const mats = useMemo(() => {
     const std = (o: THREE.MeshStandardMaterialParameters) => new THREE.MeshStandardMaterial(o)
     return {
-      line: new THREE.MeshBasicMaterial({ color: '#ff5a1f' }),
+      line: new THREE.MeshBasicMaterial({ color: '#d11f26' }),
       ground: std({ color: '#3b3029', roughness: 1 }),
       dirt: std({ color: '#5a4636', roughness: 1, flatShading: true }),
       concrete: std({ color: '#a8a39b', roughness: 0.92 }),
@@ -82,9 +82,9 @@ export function Building({ quality }: { quality: 'high' | 'low' }) {
       leaves: std({ color: '#4c7a3a', roughness: 0.9, flatShading: true }),
       shrubs: std({ color: '#3d6631', roughness: 0.9, flatShading: true }),
       lampHead: new THREE.MeshBasicMaterial({ color: '#2a2a2a' }),
-      machine: std({ color: '#e6a019', roughness: 0.5, metalness: 0.3 }),
+      machine: std({ color: '#d8d9db', roughness: 0.45, metalness: 0.35 }),
       machineDark: std({ color: '#1f2125', roughness: 0.6 }),
-      cabin: std({ color: '#5f7d93', roughness: 0.6 }),
+      cabin: std({ color: '#7a1418', roughness: 0.6 }),
     }
   }, [])
 

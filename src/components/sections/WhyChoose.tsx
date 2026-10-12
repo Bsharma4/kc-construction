@@ -81,7 +81,7 @@ export function WhyChoose() {
         </div>
         <div className="why-band-text pointer-events-none absolute inset-0 grid place-items-center px-4 text-center">
           <p className="font-display-x text-[clamp(2rem,7vw,6.5rem)] font-black uppercase leading-none text-bone">
-            Built to <span className="text-orange">last.</span>
+            Built to <span className="text-brand-bright">last.</span>
           </p>
         </div>
       </div>
@@ -89,8 +89,8 @@ export function WhyChoose() {
       <div className="container-x mt-28">
         <SectionHeading
           index="05"
-          eyebrow="Why choose K&C"
-          lines={['Why homeowners', <>call <span className="text-orange">K&amp;C.</span></>]}
+          eyebrow="Why choose K&S"
+          lines={['Why homeowners', <>call <span className="text-brand-bright">K&amp;S.</span></>]}
           intro="A second-generation family business that treats your property like our own."
         />
         <ul className="why-grid mt-16 grid gap-5 [perspective:1200px] sm:grid-cols-2 lg:grid-cols-3">
@@ -105,10 +105,10 @@ export function WhyChoose() {
                 <span
                   aria-hidden
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: 'radial-gradient(420px circle at var(--mx) var(--my), rgba(255,90,31,0.14), transparent 45%)' }}
+                  style={{ background: 'radial-gradient(420px circle at var(--mx) var(--my), rgba(209,31,38,0.14), transparent 45%)' }}
                 />
                 <div className="relative flex items-center justify-between">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-bone/[0.06] text-orange transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-[8deg] group-hover:bg-orange group-hover:text-ink">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-bone/[0.06] text-brand-bright transition-all duration-500 group-hover:-translate-y-1 group-hover:rotate-[8deg] group-hover:bg-brand group-hover:text-white">
                     <Icon size={24} strokeWidth={1.6} />
                   </span>
                   <span className="font-mono text-xs text-bone/30">0{i + 1}</span>

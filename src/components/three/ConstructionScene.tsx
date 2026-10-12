@@ -1,10 +1,11 @@
-import { useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Lightformer } from '@react-three/drei'
 import * as THREE from 'three'
 import { Building } from './Building'
 import { easeInOut, phase } from './AnimatedParts'
 import { constructionStore } from '../../lib/constructionStore'
+import { gsap } from '../../lib/gsap'
 
 /* ------------------------------------------------------------------ */
 /* Camera choreography: keyframes sampled along Catmull-Rom splines.  */
@@ -96,7 +97,7 @@ const skyFrag = /* glsl */ `
 
 const SKY = {
   dawn: { top: new THREE.Color('#1a2030'), horizon: new THREE.Color('#6b7480'), bottom: new THREE.Color('#2b2a28') },
-  dusk: { top: new THREE.Color('#0b1122'), horizon: new THREE.Color('#d9773f'), bottom: new THREE.Color('#1d1612') },
+  dusk: { top: new THREE.Color('#0d0f16'), horizon: new THREE.Color('#b9503a'), bottom: new THREE.Color('#1a1312') },
 }
 
 function Atmosphere({ shadows }: { shadows: boolean }) {
@@ -112,7 +113,7 @@ function Atmosphere({ shadows }: { shadows: boolean }) {
     [],
   )
   const fog = useMemo(() => new THREE.Fog('#4a4f57', 45, 140), [])
-  const sunWarm = useMemo(() => new THREE.Color('#ffb070'), [])
+  const sunWarm = useMemo(() => new THREE.Color('#ffb48a'), [])
   const sunCool = useMemo(() => new THREE.Color('#fff4e6'), [])
   const dirt = useMemo(() => new THREE.Color('#4a4038'), [])
   const lawn = useMemo(() => new THREE.Color('#33452a'), [])
@@ -170,6 +171,37 @@ function Atmosphere({ shadows }: { shadows: boolean }) {
   )
 }
 
+/**
+ * On-demand rendering: draw only while scroll progress or the pointer is changing, plus a short tail
+ * so camera damping can settle. Idle frames cost nothing — big win for battery and mobile GPUs.
+ */
+function Invalidator({ active }: { active: boolean }) {
+  const invalidate = useThree((s) => s.invalidate)
+  useEffect(() => {
+    let last = -1
+    let lx = 0
+    let ly = 0
+    let tail = 0
+    const tick = () => {
+      const { progress: p, pointer: pt } = constructionStore
+      if (p !== last || pt.x !== lx || pt.y !== ly) {
+        last = p
+        lx = pt.x
+        ly = pt.y
+        tail = 90
+      }
+      if (tail > 0) {
+        tail--
+        invalidate()
+      }
+    }
+    if (!active) return
+    gsap.ticker.add(tick)
+    return () => gsap.ticker.remove(tick)
+  }, [invalidate, active])
+  return null
+}
+
 export type SceneProps = {
   active: boolean
   quality: 'high' | 'low'
@@ -181,7 +213,7 @@ export default function ConstructionScene({ active, quality, interactive }: Scen
   return (
     <Canvas
       className="!absolute inset-0"
-      frameloop={active ? 'always' : 'never'}
+      frameloop={active ? 'demand' : 'never'}
       shadows={hi}
       dpr={hi ? [1, 1.75] : [1, 1.25]}
       gl={{ antialias: hi, powerPreference: 'high-performance', alpha: false }}
@@ -192,6 +224,7 @@ export default function ConstructionScene({ active, quality, interactive }: Scen
       }}
       aria-hidden
     >
+      <Invalidator active={active} />
       <Atmosphere shadows={hi} />
       <CameraRig interactive={interactive} />
       <Building quality={quality} />

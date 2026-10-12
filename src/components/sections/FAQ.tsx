@@ -17,9 +17,9 @@ function Item({ q, a, open, onToggle, n }: { q: string; a: string; open: boolean
           onClick={onToggle}
           className="group flex w-full items-center gap-6 py-7 text-left"
         >
-          <span className="font-mono text-xs text-orange">{String(n).padStart(2, '0')}</span>
+          <span className="font-mono text-xs text-brand-bright">{String(n).padStart(2, '0')}</span>
           <span className={`flex-1 text-lg font-medium transition-colors md:text-xl ${open ? 'text-bone' : 'text-bone/80 group-hover:text-bone'}`}>{q}</span>
-          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-500 ${open ? 'rotate-45 border-orange bg-orange text-ink' : 'border-bone/20 text-bone'}`}>
+          <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-500 ${open ? 'rotate-45 border-brand bg-brand text-white' : 'border-bone/20 text-bone'}`}>
             <Plus size={18} />
           </span>
         </button>
@@ -49,12 +49,12 @@ export function FAQ() {
   return (
     <section ref={ref} id="faq" className="relative bg-ink-2 py-28 md:py-40">
       <div className="container-x grid gap-14 lg:grid-cols-12">
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <SectionHeading index="08" eyebrow="Frequently asked" lines={['Good', <>questions<span className="text-orange">.</span></>]} intro="Straight answers about how projects are planned, priced and run." />
+            <SectionHeading size="compact" index="08" eyebrow="Frequently asked" lines={['Good', <>questions<span className="text-brand-bright">.</span></>]} intro="Straight answers about how projects are planned, priced and run." />
           </div>
         </div>
-        <ul className="lg:col-span-8">
+        <ul className="lg:col-span-7">
           {FAQS.map((f, i) => (
             <Item key={f.q} n={i + 1} q={f.q} a={f.a} open={open === i} onToggle={() => setOpen(open === i ? null : i)} />
           ))}

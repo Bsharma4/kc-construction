@@ -8,7 +8,7 @@ import { SERVICES } from '../../data/services'
 import { PROCESS } from '../../data/process'
 
 const STATEMENT =
-  'K&C Construction is a second-generation, family-owned and operated contractor based in Waterloo, Illinois. We are licensed and insured, and we stay hands-on — the family behind the name is on the job, from the first dig to the final walk-through.'
+  'K&S Construction is a second-generation, family-owned and operated contractor based in Waterloo, Illinois. We are licensed and insured, and we stay hands-on — the family behind the name is on the job, from the first dig to the final walk-through.'
 
 const PILLARS = [
   { k: 'Family', t: 'Second generation owned and operated — our name is on every job.' },
@@ -68,8 +68,8 @@ export function About() {
           <div className="lg:col-span-7">
             <SectionHeading
               index="01"
-              eyebrow="About K&C Construction · Second generation"
-              lines={['Family owned.', <span key="loc" className="text-orange">Locally rooted.</span>, 'Built to last.']}
+              eyebrow="About K&S Construction · Second generation"
+              lines={['Family owned.', <span key="loc" className="text-brand-bright">Locally rooted.</span>, 'Built to last.']}
             />
             <p className="about-statement mt-12 max-w-3xl text-[clamp(1.25rem,2.2vw,1.9rem)] font-medium leading-snug text-bone">
               {STATEMENT.split(' ').map((w, i) => (
@@ -88,7 +88,7 @@ export function About() {
             <div className="about-par absolute -bottom-12 -left-6 hidden w-[52%] border-[6px] border-ink shadow-2xl md:block" data-from="30" data-to="-20">
               <SmartImage photo={IMG.skidSteerDirt} width={700} alt="Skid steer loader moving dirt" className="aspect-[3/4] w-full" />
             </div>
-            <div className="absolute -right-2 top-6 rotate-90 origin-top-right font-mono text-[0.62rem] uppercase tracking-[0.4em] text-bone/40">
+            <div className="absolute -right-2 top-6 hidden rotate-90 origin-top-right font-mono md:block text-[0.62rem] uppercase tracking-[0.4em] text-bone/40">
               Waterloo, Illinois
             </div>
           </div>
@@ -117,8 +117,8 @@ export function About() {
               <li key={p.k} className="pillar group relative py-7 md:py-9">
                 <span className="pillar-rule absolute inset-x-0 top-0 h-px bg-bone/15" />
                 <div className="grid items-baseline gap-4 md:grid-cols-12">
-                  <span className="pillar-in font-mono text-xs text-orange md:col-span-1">0{i + 1}</span>
-                  <h3 className="pillar-in font-display-x text-[clamp(2rem,6vw,5rem)] font-extrabold uppercase text-bone/90 transition-colors duration-500 group-hover:text-orange md:col-span-6">
+                  <span className="pillar-in font-mono text-xs text-brand-bright md:col-span-1">0{i + 1}</span>
+                  <h3 className="pillar-in font-display-x text-[clamp(2rem,6vw,5rem)] font-extrabold uppercase text-bone/90 transition-colors duration-500 group-hover:text-brand-bright md:col-span-6">
                     {p.k}
                   </h3>
                   <p className="pillar-in max-w-md text-bone/60 md:col-span-5">{p.t}</p>

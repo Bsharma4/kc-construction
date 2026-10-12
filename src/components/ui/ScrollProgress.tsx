@@ -33,13 +33,13 @@ export function ScrollProgress() {
   return (
     <>
       <div className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px]" aria-hidden>
-        <div ref={bar} className="h-full origin-left scale-x-0 bg-orange" />
+        <div ref={bar} className="h-full origin-left scale-x-0 bg-brand" />
       </div>
       <button
         type="button"
         onClick={() => scrollToTarget(0)}
         aria-label="Back to top"
-        className={`fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-full border border-bone/15 bg-ink/70 text-bone backdrop-blur transition-all duration-500 hover:border-orange hover:bg-orange hover:text-ink ${show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'}`}
+        className={`fixed bottom-4 right-4 z-40 grid h-11 w-11 sm:bottom-5 sm:right-5 sm:h-12 sm:w-12 place-items-center rounded-full border border-bone/15 bg-ink/70 text-bone backdrop-blur transition-all duration-500 hover:border-brand hover:bg-brand hover:text-white ${show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'}`}
         tabIndex={show ? 0 : -1}
       >
         <ArrowUp size={18} />

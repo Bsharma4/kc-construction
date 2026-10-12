@@ -5,7 +5,7 @@ import { TESTIMONIALS } from '../../data/testimonials'
 import { SectionHeading } from '../ui/SectionHeading'
 import { CallButton } from '../ui/CallButton'
 
-const HEADING = <SectionHeading index="06" eyebrow="Customer reviews" lines={['What our', <>clients <span className="text-orange">say.</span></>]} />
+const HEADING = <SectionHeading index="06" eyebrow="Customer reviews" lines={['What our', <>clients <span className="text-brand-bright">say.</span></>]} />
 
 /** Shows real reviews from data/testimonials.ts, or an honest invitation while none have been added. */
 export function Testimonials() {
@@ -19,10 +19,10 @@ function ReviewsPending() {
         {HEADING}
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           <div className="rounded-xl border border-white/[0.08] bg-ink p-8 md:p-10">
-            <MessageSquareQuote size={30} className="text-orange" />
+            <MessageSquareQuote size={30} className="text-brand-bright" />
             <p className="mt-6 font-display-x text-2xl font-extrabold uppercase text-bone md:text-3xl">Real reviews from real neighbors.</p>
             <p className="mt-4 max-w-md leading-relaxed text-bone/65">
-              We only publish genuine feedback from K&amp;C Construction customers. Verified reviews will appear here soon.
+              We only publish genuine feedback from K&amp;S Construction customers. Verified reviews will appear here soon.
             </p>
           </div>
           <div className="flex flex-col justify-between gap-8 rounded-xl border border-dashed border-bone/15 p-8 md:p-10">
@@ -105,10 +105,10 @@ function ReviewCarousel() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           {HEADING}
           <div className="flex items-center gap-3">
-            <button type="button" onClick={() => go(-1)} disabled={index === 0} aria-label="Previous review" className="grid h-14 w-14 place-items-center rounded-full border border-bone/20 transition hover:border-orange hover:bg-orange hover:text-ink disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bone">
+            <button type="button" onClick={() => go(-1)} disabled={index === 0} aria-label="Previous review" className="grid h-14 w-14 place-items-center rounded-full border border-bone/20 transition hover:border-brand hover:bg-brand hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bone">
               <ArrowLeft size={20} />
             </button>
-            <button type="button" onClick={() => go(1)} disabled={index >= maxIndex} aria-label="Next review" className="grid h-14 w-14 place-items-center rounded-full border border-bone/20 transition hover:border-orange hover:bg-orange hover:text-ink disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bone">
+            <button type="button" onClick={() => go(1)} disabled={index >= maxIndex} aria-label="Next review" className="grid h-14 w-14 place-items-center rounded-full border border-bone/20 transition hover:border-brand hover:bg-brand hover:text-white disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-bone">
               <ArrowRight size={20} />
             </button>
           </div>
@@ -145,7 +145,7 @@ function ReviewCarousel() {
                   {t.rating ? (
                     <div className="flex gap-1" aria-label={`Rating: ${t.rating} out of 5`}>
                       {Array.from({ length: 5 }).map((_, s) => (
-                        <Star key={s} size={16} className={s < (t.rating ?? 0) ? 'fill-orange text-orange' : 'text-bone/20'} />
+                        <Star key={s} size={16} className={s < (t.rating ?? 0) ? 'fill-brand-bright text-brand-bright' : 'text-bone/20'} />
                       ))}
                     </div>
                   ) : <span />}
@@ -178,7 +178,7 @@ function ReviewCarousel() {
                 aria-selected={i === index}
                 aria-label={`Go to review ${i + 1}`}
                 onClick={() => setIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-orange' : 'w-4 bg-bone/20 hover:bg-bone/40'}`}
+                className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-brand' : 'w-4 bg-bone/20 hover:bg-bone/40'}`}
               />
             ))}
           </div>

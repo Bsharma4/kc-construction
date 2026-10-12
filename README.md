@@ -1,6 +1,6 @@
-# K&C Construction — Website
+# K&S Construction — Website
 
-Website for K&C Construction, a second-generation, family-owned residential construction and home improvement contractor in Waterloo, Illinois (licensed & insured). As visitors scroll, a procedurally generated 3D family home is built in real time: excavation → foundation → framing → roofing → windows → exterior finishes → deck, driveway, fence and landscaping. Scrolling back up reverses it.
+Website for K&S Construction, a second-generation, family-owned residential construction and home improvement contractor in Waterloo, Illinois (licensed & insured). As visitors scroll, a procedurally generated 3D family home is built in real time: excavation → foundation → framing → roofing → windows → exterior finishes → deck, driveway, fence and landscaping. Scrolling back up reverses it.
 
 **Stack:** React 19 · Vite · TypeScript · Tailwind CSS v4 · GSAP + ScrollTrigger · Lenis · Three.js / React Three Fiber / Drei · Lucide icons
 
@@ -22,9 +22,11 @@ Requires Node 20.19+ (Node 22 recommended).
 
 `npm run build` outputs a static site in `dist/`. The build uses relative asset paths (`base: './'`), so it can be uploaded to any static host (Netlify, Vercel, Cloudflare Pages, S3, a sub-folder on your own server) with no extra configuration.
 
-## Setting the phone number ("Call Now for a Bid")
+## Business details & brand
 
-Copy `.env.example` to `.env` and set `VITE_PHONE_NUMBER="(618) 555-0123"` (your real number), then rebuild. Every "Call Now for a Bid" button becomes a tap-to-call link and the number appears in the contact section. Until it is set, the buttons scroll to the bid request form. Business details live in `src/lib/site.ts`.
+- Phone **618-910-7886** (`tel:+16189107886`), name, location and tagline live in `src/lib/site.ts`. An optional `VITE_PHONE_NUMBER` repository variable overrides the phone at build time.
+- Official logo: `src/assets/brand/logo-*.webp` (transparent cut-out of the supplied artwork at 160/320/640 px). Favicon, Apple touch icon and the social share image are in `public/`.
+- Palette tokens in `src/index.css`: `brand` (deep metallic red), `brand-bright` (red for small text on black, WCAG AA), `steel` (silver), `ink` (charcoal), `bone` (white).
 
 ## Adding customer reviews
 
@@ -84,8 +86,8 @@ To retime a stage, edit `T` in `parts.ts` and the matching `start` values in `CO
 
 ## Content notes. Please read before going live.
 
-- **Phone number** is not set yet (see above). No email, street address or office hours have been invented.
-- **Project and gallery images** are illustrative Unsplash stock photos and are labelled as such. Replace them with real K&C job photos when available (`src/lib/images.ts`, `src/data/projects.ts`, `src/data/gallery.ts`).
+- No email, street address or office hours have been invented.
+- **Project and gallery images** are illustrative Unsplash stock photos and are labelled as such. Replace them with real K&S job photos when available (`src/lib/images.ts`, `src/data/projects.ts`, `src/data/gallery.ts`).
 - **Reviews** are empty by design. Add only genuine reviews.
 - **Social links** in the footer are placeholders. Add the real Facebook page URL when available.
 - No years in business, certifications, awards or service areas beyond Waterloo, Illinois are claimed.

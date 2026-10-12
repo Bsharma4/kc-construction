@@ -35,7 +35,7 @@ export function CursorFollower() {
     <div
       ref={ring}
       aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[100] h-7 w-7 rounded-full border border-orange/80 mix-blend-difference"
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-7 w-7 rounded-full border border-brand/80 mix-blend-difference"
     />
   )
 }

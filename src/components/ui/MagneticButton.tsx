@@ -15,9 +15,10 @@ type Props = {
 }
 
 const styles = {
-  primary: 'bg-orange text-ink hover:bg-bone',
-  ghost: 'border border-bone/25 text-bone hover:border-bone/60 bg-white/0 hover:bg-white/5',
-  light: 'bg-bone text-ink hover:bg-orange',
+  primary:
+    'bg-gradient-to-b from-[#de2028] to-[#a10e14] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_30px_-12px_rgba(200,20,27,0.7)] hover:from-[#e3242c] hover:to-[#b5111a]',
+  ghost: 'border border-steel/40 text-bone hover:border-steel/80 bg-white/0 hover:bg-white/5',
+  light: 'bg-bone text-ink hover:bg-brand hover:text-white',
 }
 
 /** Button / link that is pulled toward the pointer, with an inner label that moves further. */

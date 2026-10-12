@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Menu, Phone, X } from 'lucide-react'
 import { gsap, useGSAP } from '../../lib/gsap'
+import logo160 from '../../assets/brand/logo-160.webp'
+import logo320 from '../../assets/brand/logo-320.webp'
+import logo640 from '../../assets/brand/logo-640.webp'
 import { lockScroll, scrollToTarget } from '../../lib/smoothScroll'
 import { CallButton } from '../ui/CallButton'
 import { CALL_LABEL, hasPhone, telHref } from '../../lib/site'
@@ -15,18 +18,21 @@ export const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export function Logo({ className = '' }: { className?: string }) {
+/** Official K&S Construction logo (transparent WebP, original artwork, aspect ratio preserved). */
+export function Logo({ className = 'h-11 sm:h-12', eager = false, sizes = '80px' }: { className?: string; eager?: boolean; sizes?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <span className="relative grid h-9 w-9 place-items-center rounded-[10px] bg-bone text-ink">
-        <span className="font-display-x text-[0.95rem] font-black tracking-tighter">K&amp;C</span>
-        <span className="absolute -bottom-1 -right-1 h-2.5 w-2.5 bg-orange" />
-      </span>
-      <span className="leading-none">
-        <span className="font-display-x block text-[0.95rem] font-extrabold uppercase tracking-tight">K&amp;C</span>
-        <span className="block font-mono text-[0.58rem] uppercase tracking-[0.3em] text-bone/60">Construction</span>
-      </span>
-    </span>
+    <img
+      src={logo320}
+      srcSet={`${logo160} 160w, ${logo320} 320w, ${logo640} 640w`}
+      sizes={sizes}
+      width={1503}
+      height={901}
+      alt="K&S Construction"
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      className={`w-auto select-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] ${className}`}
+      draggable={false}
+    />
   )
 }
 
@@ -117,15 +123,15 @@ export function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-orange focus:px-4 focus:py-2 focus:text-ink">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-brand focus:px-4 focus:py-2 focus:text-white">
         Skip to content
       </a>
       <div
         className={`transition-all duration-500 ${scrolled || open ? 'glass border-b border-white/[0.07] py-3' : 'border-b border-transparent bg-transparent py-5'}`}
       >
         <nav className="container-x flex items-center justify-between gap-6" aria-label="Primary">
-          <a href="#home" onClick={(e) => navigate(e, '#home', () => setOpen(false))} aria-label="K&C Construction — home">
-            <Logo />
+          <a href="#home" onClick={(e) => navigate(e, '#home', () => setOpen(false))} aria-label="K&S Construction — home">
+            <Logo eager className="h-11 sm:h-[52px]" />
           </a>
           <ul className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((l) => (
@@ -138,7 +144,7 @@ export function Navbar() {
                 >
                   {l.label}
                   <span
-                    className={`absolute inset-x-3.5 -bottom-0.5 h-px origin-left bg-orange transition-transform duration-500 ${active === l.href ? 'scale-x-100' : 'scale-x-0'}`}
+                    className={`absolute inset-x-3.5 -bottom-0.5 h-px origin-left bg-brand transition-transform duration-500 ${active === l.href ? 'scale-x-100' : 'scale-x-0'}`}
                   />
                 </a>
               </li>
@@ -150,7 +156,7 @@ export function Navbar() {
               href={telHref}
               onClick={hasPhone ? undefined : (e) => navigate(e, '#contact', () => setOpen(false))}
               aria-label={CALL_LABEL}
-              className="grid h-11 w-11 place-items-center rounded-full bg-orange text-ink sm:hidden"
+              className="grid h-11 w-11 place-items-center rounded-full bg-brand text-white sm:hidden"
             >
               <Phone size={18} />
             </a>
@@ -187,7 +193,7 @@ export function Navbar() {
                   className="flex items-baseline justify-between py-4"
                 >
                   <span className="font-display-x text-3xl font-extrabold uppercase">{l.label}</span>
-                  <span className="font-mono text-xs text-orange">0{i + 1}</span>
+                  <span className="font-mono text-xs text-brand-bright">0{i + 1}</span>
                 </a>
               </li>
             ))}
@@ -197,7 +203,7 @@ export function Navbar() {
               data-menu-item
               href={telHref}
               onClick={hasPhone ? () => setOpen(false) : (e) => navigate(e, '#contact', () => setOpen(false))}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-orange px-6 py-4 font-semibold text-ink"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 font-semibold text-white"
             >
               <Phone size={18} /> {CALL_LABEL}
             </a>

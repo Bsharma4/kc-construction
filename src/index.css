@@ -9,8 +9,10 @@
   --color-concrete-2: #b9b6af;
   --color-bone: #f3efe8;
   --color-bone-2: #e7e1d6;
-  --color-orange: #ff5a1f;
-  --color-orange-2: #ff7a45;
+  /* K&S brand: deep metallic red (fills/CTAs), brighter red for small text on black, steel silver */
+  --color-brand: #c8141b;
+  --color-brand-bright: #f2414a;
+  --color-steel: #b8bcc2;
 
   --font-display: 'Archivo', 'Arial Narrow', system-ui, sans-serif;
   --font-sans: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -40,11 +42,11 @@
     min-height: 100vh;
   }
   ::selection {
-    background: var(--color-orange);
-    color: var(--color-ink);
+    background: var(--color-brand);
+    color: #fff;
   }
   :focus-visible {
-    outline: 2px solid var(--color-orange);
+    outline: 2px solid var(--color-brand-bright);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -102,12 +104,12 @@ html.lenis body {
     background-size: 80px 80px;
   }
   .blueprint-grid {
-    background-color: #0d1824;
+    background-color: #141518;
     background-image:
-      linear-gradient(rgb(120 170 220 / 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(120 170 220 / 0.12) 1px, transparent 1px),
-      linear-gradient(rgb(120 170 220 / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(120 170 220 / 0.05) 1px, transparent 1px);
+      linear-gradient(rgb(200 205 212 / 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(200 205 212 / 0.09) 1px, transparent 1px),
+      linear-gradient(rgb(200 205 212 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(200 205 212 / 0.04) 1px, transparent 1px);
     background-size:
       100px 100px,
       100px 100px,

@@ -21,7 +21,7 @@ class SceneBoundary extends Component<{ fallback: ReactNode; children: ReactNode
     return { failed: true }
   }
   componentDidCatch(err: unknown) {
-    console.warn('[K&C] 3D scene failed, using 2D construction fallback.', err)
+    console.warn('[K&S] 3D scene failed, using 2D construction fallback.', err)
   }
   render() {
     return this.state.failed ? this.props.fallback : this.props.children
@@ -185,52 +185,52 @@ export function ConstructionExperience() {
         <h2 className="font-display-x text-[clamp(1.9rem,6.4vw,6rem)] font-extrabold uppercase text-bone drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
           <span className="line-mask"><span className="cx-intro-line">Every great home</span></span>
           <span className="line-mask"><span className="cx-intro-line">starts with</span></span>
-          <span className="line-mask"><span className="cx-intro-line text-orange">solid ground.</span></span>
+          <span className="line-mask"><span className="cx-intro-line text-brand-bright">solid ground.</span></span>
         </h2>
         <p className="cx-intro-sub eyebrow mt-8">Scroll to break ground ↓</p>
       </div>
 
       {/* 100% — final reveal */}
-      <div className="pointer-events-none absolute inset-x-0 top-[13vh] flex flex-col items-center px-4 text-center">
-        <h2 className="font-display-x text-[clamp(2rem,6vw,5.6rem)] font-extrabold uppercase text-bone drop-shadow-[0_4px_40px_rgba(0,0,0,0.6)]">
+      <div className="pointer-events-none absolute inset-x-0 top-[13vh] flex flex-col items-center px-4 text-center [@media(max-height:520px)]:top-[19vh]">
+        <h2 className="font-display-x text-[clamp(2rem,6vw,5.6rem)] [@media(max-height:520px)]:text-[clamp(1.4rem,4.4vw,2.6rem)] font-extrabold uppercase text-bone drop-shadow-[0_4px_40px_rgba(0,0,0,0.6)]">
           <span className="line-mask"><span className="cx-final-line invisible">Built for your home.</span></span>
-          <span className="line-mask"><span className="cx-final-line invisible">Built to <span className="text-orange">last.</span></span></span>
+          <span className="line-mask"><span className="cx-final-line invisible">Built to <span className="text-brand-bright">last.</span></span></span>
         </h2>
-        <p className="cx-final-sub invisible mt-6 max-w-md text-sm text-bone/75 md:text-base">
+        <p className="cx-final-sub invisible mt-6 max-w-md text-sm text-bone/75 md:text-base [@media(max-height:520px)]:mt-2 [@media(max-height:520px)]:text-xs">
           Excavation, concrete, framing, roofing, decks, fencing and landscaping — one family team from start to finish.
         </p>
       </div>
 
       {/* progress HUD */}
-      <div className="cx-hud invisible absolute inset-x-0 bottom-0 px-4 pb-6 md:px-10 md:pb-10">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div className="cx-hud invisible absolute inset-x-0 bottom-0 px-4 pb-6 md:px-10 md:pb-10 [@media(max-height:520px)]:pb-3">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-5 md:flex-row [@media(max-height:520px)]:gap-2 md:items-end md:justify-between">
           <div aria-live="polite" className="max-w-md">
-            <p className="eyebrow mb-2 !text-orange">
+            <p className="eyebrow mb-2 !text-brand">
               Stage {String(stage + 1).padStart(2, '0')} / {String(CONSTRUCTION_STAGES.length).padStart(2, '0')}
             </p>
-            <p key={current.id} className="font-display-x text-2xl font-extrabold uppercase text-bone md:text-4xl">
+            <p key={current.id} className="font-display-x text-2xl font-extrabold uppercase text-bone md:text-4xl [@media(max-height:520px)]:text-lg">
               {current.label}
             </p>
-            <p className="mt-2 text-sm text-bone/70">{current.caption}</p>
+            <p className="mt-2 text-sm text-bone/70 [@media(max-height:520px)]:hidden">{current.caption}</p>
           </div>
           <div className="w-full md:w-[460px]">
             <div className="mb-3 flex items-end justify-between">
               <span className="eyebrow">Construction progress</span>
               <span className="font-mono text-3xl text-bone md:text-5xl">
                 <span ref={pctRef}>000</span>
-                <span className="text-orange">%</span>
+                <span className="text-brand-bright">%</span>
               </span>
             </div>
             <div className="relative h-[3px] w-full overflow-hidden bg-bone/15">
-              <div ref={barRef} className="absolute inset-0 origin-left scale-x-0 bg-orange" />
+              <div ref={barRef} className="absolute inset-0 origin-left scale-x-0 bg-brand" />
             </div>
-            <ol className="mt-3 hidden grid-cols-7 gap-1.5 md:grid">
+            <ol className="mt-3 hidden grid-cols-7 gap-1.5 lg:grid">
               {CONSTRUCTION_STAGES.map((s, i) => (
                 <li
                   key={s.id}
                   className={`font-mono text-[0.6rem] uppercase leading-tight tracking-wider transition-colors duration-500 ${i <= stage ? 'text-bone' : 'text-bone/30'}`}
                 >
-                  <span className={`mb-1.5 block h-1 w-1 rounded-full ${i === stage ? 'bg-orange' : i < stage ? 'bg-bone/70' : 'bg-bone/20'}`} />
+                  <span className={`mb-1.5 block h-1 w-1 rounded-full ${i === stage ? 'bg-brand' : i < stage ? 'bg-bone/70' : 'bg-bone/20'}`} />
                   {s.label}
                 </li>
               ))}

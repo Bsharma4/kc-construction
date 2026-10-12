@@ -50,8 +50,8 @@ export function Gallery() {
         <SectionHeading
           index="07"
           eyebrow="Construction gallery"
-          lines={['On site.', <>In <span className="text-orange">detail.</span></>]}
-          intro="The kind of work we do — framing, remodels, concrete, decks, fencing and site work. Illustrative stock photography via Unsplash; not K&C job photos."
+          lines={['On site.', <>In <span className="text-brand-bright">detail.</span></>]}
+          intro="The kind of work we do — framing, remodels, concrete, decks, fencing and site work. Illustrative stock photography via Unsplash; not K&S job photos."
         />
         <ul className="mt-16 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>li]:mb-4">
           {GALLERY.map((g, i) => (
@@ -72,7 +72,7 @@ export function Gallery() {
                 />
                 <div className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-ink/80 via-transparent to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="text-left text-sm text-bone">{g.alt}</span>
-                  <Maximize2 size={18} className="shrink-0 text-orange" />
+                  <Maximize2 size={18} className="shrink-0 text-brand-bright" />
                 </div>
               </button>
             </li>
@@ -90,10 +90,10 @@ export function Gallery() {
                 {String((open ?? 0) + 1).padStart(2, '0')} / {GALLERY.length}
               </span>
             </figcaption>
-            <button type="button" onClick={() => step(-1)} aria-label="Previous image" className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-bone/20 bg-ink/60 backdrop-blur hover:border-orange hover:text-orange md:left-8">
+            <button type="button" onClick={() => step(-1)} aria-label="Previous image" className="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-bone/20 bg-ink/60 backdrop-blur hover:border-brand hover:text-brand-bright md:left-8">
               <ArrowLeft size={20} />
             </button>
-            <button type="button" onClick={() => step(1)} aria-label="Next image" className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-bone/20 bg-ink/60 backdrop-blur hover:border-orange hover:text-orange md:right-8">
+            <button type="button" onClick={() => step(1)} aria-label="Next image" className="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-bone/20 bg-ink/60 backdrop-blur hover:border-brand hover:text-brand-bright md:right-8">
               <ArrowRight size={20} />
             </button>
           </figure>

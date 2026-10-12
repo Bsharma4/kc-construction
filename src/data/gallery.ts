@@ -2,7 +2,7 @@ import { IMG } from '../lib/images'
 
 export type GalleryItem = { id: string; photo: string; alt: string; ratio: string }
 
-/** Illustrative stock photography from Unsplash (unsplash.com/license) — not K&C job photos. */
+/** Illustrative stock photography from Unsplash (unsplash.com/license) — not K&S job photos. */
 export const GALLERY: GalleryItem[] = [
   { id: 'g1', photo: IMG.houseFraming, alt: 'House under construction with wooden framing', ratio: '3/4' },
   { id: 'g2', photo: IMG.deckTrees, alt: 'Wooden deck surrounded by green trees', ratio: '4/3' },

@@ -35,10 +35,10 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
               <SmartImage key={project.gallery[idx]} photo={project.gallery[idx]} width={1600} alt={`${project.title} — image ${idx + 1}`} className="absolute inset-0" eager />
             </div>
             <div className="absolute bottom-4 left-4 flex gap-2">
-              <button type="button" onClick={() => go(-1)} aria-label="Previous image" className="grid h-11 w-11 place-items-center rounded-full bg-ink/70 backdrop-blur hover:bg-orange hover:text-ink">
+              <button type="button" onClick={() => go(-1)} aria-label="Previous image" className="grid h-11 w-11 place-items-center rounded-full bg-ink/70 backdrop-blur hover:bg-brand hover:text-white">
                 <ArrowLeft size={18} />
               </button>
-              <button type="button" onClick={() => go(1)} aria-label="Next image" className="grid h-11 w-11 place-items-center rounded-full bg-ink/70 backdrop-blur hover:bg-orange hover:text-ink">
+              <button type="button" onClick={() => go(1)} aria-label="Next image" className="grid h-11 w-11 place-items-center rounded-full bg-ink/70 backdrop-blur hover:bg-brand hover:text-white">
                 <ArrowRight size={18} />
               </button>
             </div>
@@ -47,7 +47,7 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             </span>
           </div>
           <div className="flex flex-col p-6 md:p-10">
-            <span className="eyebrow !text-orange">{project.category}</span>
+            <span className="eyebrow !text-brand">{project.category}</span>
             <h3 className="font-display-x mt-4 pr-12 text-3xl font-extrabold uppercase md:text-4xl">{project.title}</h3>
             <p className="mt-6 leading-relaxed text-bone/70">{project.description}</p>
             <ul className="mt-8 flex flex-wrap gap-2">
@@ -65,15 +65,15 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
                   onClick={() => setIdx(i)}
                   aria-label={`Show image ${i + 1}`}
                   aria-current={i === idx}
-                  className={`overflow-hidden rounded-sm ring-2 transition ${i === idx ? 'ring-orange' : 'ring-transparent opacity-60 hover:opacity-100'}`}
+                  className={`overflow-hidden rounded-sm ring-2 transition ${i === idx ? 'ring-brand' : 'ring-transparent opacity-60 hover:opacity-100'}`}
                 >
                   <SmartImage photo={g} width={300} alt="" className="aspect-square" />
                 </button>
               ))}
             </div>
             <p className="mt-auto flex items-start gap-2 pt-10 text-xs leading-relaxed text-bone/45">
-              <Info size={14} className="mt-0.5 shrink-0 text-orange" />
-              Illustrative example — stock photography (Unsplash), not a completed K&amp;C Construction project.
+              <Info size={14} className="mt-0.5 shrink-0 text-brand-bright" />
+              Illustrative example — stock photography (Unsplash), not a completed K&amp;S Construction project.
             </p>
           </div>
         </div>
@@ -149,8 +149,8 @@ export function Projects() {
           <SectionHeading
             index="03"
             eyebrow="Project types"
-            lines={['Homes, yards', <>&amp; everything <span className="text-orange">between.</span></>]}
-            intro="Examples of the residential, remodeling, outdoor and site-work projects we take on. Images are illustrative stock photos, not completed K&C jobs."
+            lines={['Homes, yards', <>&amp; everything <span className="text-brand-bright">between.</span></>]}
+            intro="Examples of the residential, remodeling, outdoor and site-work projects we take on. Images are illustrative stock photos, not completed K&S jobs."
           />
           <div className="flex flex-col gap-4 lg:items-end">
             <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
@@ -160,15 +160,15 @@ export function Projects() {
                   role="tab"
                   aria-selected={filter === f}
                   onClick={() => setFilter(f)}
-                  className={`rounded-full border px-4 py-2 text-xs font-medium tracking-wide transition-all duration-300 ${filter === f ? 'border-orange bg-orange text-ink' : 'border-bone/15 text-bone/70 hover:border-bone/40 hover:text-bone'}`}
+                  className={`rounded-full border px-4 py-2 text-xs font-medium tracking-wide transition-all duration-300 ${filter === f ? 'border-brand bg-brand text-white' : 'border-bone/15 text-bone/70 hover:border-bone/40 hover:text-bone'}`}
                 >
                   {f}
                 </button>
               ))}
             </div>
             <p className="flex max-w-sm items-start gap-2 text-xs text-bone/50 lg:text-right">
-              <Info size={14} className="mt-0.5 shrink-0 text-orange lg:order-2" />
-              Illustrative concepts — not actual completed K&amp;C Construction projects.
+              <Info size={14} className="mt-0.5 shrink-0 text-brand-bright lg:order-2" />
+              Illustrative concepts — not actual completed K&amp;S Construction projects.
             </p>
           </div>
         </div>
@@ -198,12 +198,12 @@ export function Projects() {
                   <span className="absolute left-4 top-4 rounded-full bg-ink/70 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-bone/85 backdrop-blur">
                     Illustrative concept
                   </span>
-                  <span className="absolute right-4 top-4 grid h-11 w-11 scale-75 place-items-center rounded-full bg-orange text-ink opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
+                  <span className="absolute right-4 top-4 grid h-11 w-11 scale-75 place-items-center rounded-full bg-brand text-white opacity-0 transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">
                     <Maximize2 size={18} />
                   </span>
                   <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-8">
                     <div>
-                      <span className="eyebrow !text-orange">
+                      <span className="eyebrow !text-brand">
                         {String(i + 1).padStart(2, '0')} — {p.category}
                       </span>
                       <h3 className="font-display-x mt-3 text-2xl font-extrabold uppercase text-bone md:text-4xl">{p.title}</h3>
@@ -218,7 +218,7 @@ export function Projects() {
           {list.length === 0 && <li className="text-bone/60">No projects in this category yet.</li>}
         </ul>
         <div className="absolute inset-x-[clamp(1rem,4vw,3.5rem)] bottom-10 hidden h-px bg-bone/15 lg:block">
-          <div ref={bar} className="h-full origin-left scale-x-0 bg-orange" />
+          <div ref={bar} className="h-full origin-left scale-x-0 bg-brand" />
         </div>
       </div>
       <ProjectModal key={open?.id ?? 'none'} project={open} onClose={close} />

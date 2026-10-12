@@ -16,7 +16,7 @@ export type Project = {
 
 /**
  * ILLUSTRATIVE CONCEPTS — stock photography showing the type of work offered.
- * These are NOT completed K&C Construction projects. Replace with real job photos when available.
+ * These are NOT completed K&S Construction projects. Replace with real job photos when available.
  */
 export const PROJECTS: Project[] = [
   {

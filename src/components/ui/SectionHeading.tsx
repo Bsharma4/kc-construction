@@ -44,12 +44,12 @@ export function SectionHeading({ eyebrow, index, lines, intro, align = 'left', c
   return (
     <div ref={root} className={`${center ? 'mx-auto text-center' : ''} ${className}`}>
       <div data-fade className={`mb-6 flex items-center gap-3 ${center ? 'justify-center' : ''}`}>
-        {index && <span className="font-mono text-xs text-orange">{index}</span>}
-        <span className="h-px w-10 bg-orange/70" aria-hidden />
+        {index && <span className="font-mono text-xs text-brand-bright">{index}</span>}
+        <span className="h-px w-10 bg-brand/70" aria-hidden />
         <span className={`eyebrow ${tone === 'light' ? '!text-ink/60' : ''}`}>{eyebrow}</span>
       </div>
       <h2
-        className={`font-display-x ${size === 'compact' ? 'text-[clamp(2.1rem,4.4vw,4.4rem)]' : 'text-[clamp(2.2rem,6.2vw,5.6rem)]'} font-extrabold uppercase ${tone === 'light' ? 'text-ink' : 'text-bone'}`}
+        className={`font-display-x ${size === 'compact' ? 'text-[clamp(1.6rem,8.6vw,3.4rem)] md:text-[clamp(2rem,5vw,3.6rem)] lg:text-[clamp(2rem,3.5vw,3.6rem)]' : 'text-[clamp(1.6rem,8.6vw,3.4rem)] md:text-[clamp(2.2rem,6.2vw,5.6rem)]'} font-extrabold uppercase ${tone === 'light' ? 'text-ink' : 'text-bone'}`}
       >
         {lines.map((l, i) => (
           <span key={i} className="line-mask">

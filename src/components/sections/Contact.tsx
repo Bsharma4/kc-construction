@@ -4,7 +4,8 @@ import { gsap, useGSAP } from '../../lib/gsap'
 import { FORM_ENDPOINT, submitInquiry, type InquiryPayload } from '../../lib/submitInquiry'
 import { MagneticButton } from '../ui/MagneticButton'
 import { CallButton } from '../ui/CallButton'
-import { SITE, hasPhone, telHref } from '../../lib/site'
+import { BID_LABEL, SITE, hasPhone, telHref } from '../../lib/site'
+import { Logo } from '../layout/Navbar'
 
 type Errors = Partial<Record<keyof InquiryPayload, string>>
 
@@ -47,13 +48,13 @@ function Field({
     <div className="flex flex-col gap-2">
       <label htmlFor={name} className="flex items-baseline justify-between text-xs font-medium uppercase tracking-[0.14em] text-bone/70">
         <span>
-          {label} {required ? <span className="text-orange" aria-hidden>*</span> : <span className="normal-case tracking-normal text-bone/35">(optional)</span>}
+          {label} {required ? <span className="text-brand-bright" aria-hidden>*</span> : <span className="normal-case tracking-normal text-bone/35">(optional)</span>}
         </span>
       </label>
       {children}
       {hint && !error && <p id={`${name}-hint`} className="text-xs text-bone/40">{hint}</p>}
       {error && (
-        <p id={`${name}-error`} className="flex items-center gap-1.5 text-xs text-[#ff8a65]">
+        <p id={`${name}-error`} className="flex items-center gap-1.5 text-xs text-[#ff6b6b]">
           <CircleAlert size={13} /> {error}
         </p>
       )}
@@ -62,7 +63,7 @@ function Field({
 }
 
 const inputCls = (err?: string) =>
-  `w-full rounded-lg border bg-ink/60 px-4 py-3.5 text-[0.95rem] text-bone placeholder:text-bone/30 outline-none transition focus:border-orange focus:ring-2 focus:ring-orange/25 ${err ? 'border-[#ff8a65]' : 'border-white/10 hover:border-white/25'}`
+  `w-full rounded-lg border bg-ink/60 px-4 py-3.5 text-[0.95rem] text-bone placeholder:text-bone/30 outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/25 ${err ? 'border-[#ff6b6b]' : 'border-white/10 hover:border-white/25'}`
 
 export function Contact() {
   const root = useRef<HTMLElement>(null)
@@ -137,16 +138,16 @@ export function Contact() {
 
   return (
     <section ref={root} id="contact" className="grain relative overflow-hidden bg-ink py-28 md:py-40">
-      <div className="pointer-events-none absolute -right-40 top-20 h-[600px] w-[600px] rounded-full bg-orange/10 blur-[140px]" />
+      <div className="pointer-events-none absolute -right-40 top-20 h-[600px] w-[600px] rounded-full bg-brand/10 blur-[140px]" />
       <div className="container-x relative">
         <p className="eyebrow mb-8 flex items-center gap-3">
-          <span className="font-mono text-orange">09</span>
-          <span className="h-px w-10 bg-orange/70" /> Call now for a bid
+          <span className="font-mono text-brand-bright">09</span>
+          <span className="h-px w-10 bg-brand/70" /> Call now for a bid
         </p>
-        <h2 className="font-display-x text-[clamp(2.4rem,8vw,8.5rem)] font-black uppercase text-bone">
+        <h2 className="font-display-x text-[clamp(1.6rem,8.4vw,8.5rem)] font-black uppercase text-bone">
           <span className="line-mask"><span className="ct-line">Let’s build</span></span>
           <span className="line-mask"><span className="ct-line">something</span></span>
-          <span className="line-mask"><span className="ct-line text-orange">that lasts.</span></span>
+          <span className="line-mask"><span className="ct-line text-brand-bright">that lasts.</span></span>
         </h2>
 
         <div className="mt-16 grid gap-12 lg:grid-cols-12">
@@ -158,34 +159,35 @@ export function Contact() {
             <ol className="mt-10 space-y-6">
               {['Call or send your project details', 'We look at the job with you', 'You receive a clear bid'].map((s, i) => (
                 <li key={s} className="flex gap-4">
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-orange/50 font-mono text-xs text-orange">{i + 1}</span>
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-brand/50 font-mono text-xs text-brand-bright">{i + 1}</span>
                   <span className="pt-1 text-bone/80">{s}</span>
                 </li>
               ))}
             </ol>
             <div className="mt-10 rounded-xl border border-white/10 bg-ink-2 p-5 text-sm leading-relaxed text-bone/55">
               <p className="mb-2 flex items-center gap-2 font-medium text-bone/80">
-                <Info size={15} className="text-orange" /> K&amp;C Construction
+                <Info size={15} className="text-brand-bright" /> K&amp;S Construction
               </p>
+              <Logo className="mb-4 mt-2 h-20" sizes="140px" />
               Waterloo, Illinois · Second generation owned and operated · Licensed &amp; insured
-              {hasPhone && <a href={telHref} className="mt-3 block font-display-x text-2xl font-extrabold text-bone hover:text-orange">{SITE.phone}</a>}
+              {hasPhone && <a href={telHref} className="mt-3 block font-display-x text-2xl font-extrabold text-bone hover:text-brand-bright">{SITE.phone}</a>}
             </div>
           </aside>
 
           <div className="ct-form lg:col-span-8">
             {!FORM_ENDPOINT && (
-              <div className="mb-6 flex items-start gap-3 rounded-xl border border-orange/40 bg-orange/[0.08] p-4 text-sm text-bone/85" role="note">
-                <AlertTriangle size={18} className="mt-0.5 shrink-0 text-orange" />
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-brand/40 bg-brand/[0.08] p-4 text-sm text-bone/85" role="note">
+                <AlertTriangle size={18} className="mt-0.5 shrink-0 text-brand-bright" />
                 <p>
                   <strong className="font-semibold text-bone">Demo mode.</strong> This form is not connected to an email service or backend yet, so submissions are
-                  validated but <strong>not sent anywhere</strong>. It needs integration (set <code className="font-mono text-xs text-orange">VITE_FORM_ENDPOINT</code>) before it can receive real inquiries.
+                  validated but <strong>not sent anywhere</strong>. It needs integration (set <code className="font-mono text-xs text-brand-bright">VITE_FORM_ENDPOINT</code>) before it can receive real inquiries.
                 </p>
               </div>
             )}
 
             {status === 'demo' || status === 'sent' ? (
               <div className="rounded-2xl border border-white/10 bg-ink-2 p-8 md:p-12" role="status" aria-live="polite">
-                <CircleCheck size={40} className="text-orange" />
+                <CircleCheck size={40} className="text-brand-bright" />
                 <h3 ref={doneRef} tabIndex={-1} className="font-display-x mt-6 text-3xl font-extrabold uppercase outline-none md:text-4xl">
                   {status === 'sent' ? 'Inquiry sent.' : 'Form completed — not sent.'}
                 </h3>
@@ -204,19 +206,19 @@ export function Contact() {
                       </div>
                     ))}
                 </dl>
-                <button type="button" onClick={reset} className="mt-8 text-sm font-semibold text-orange underline-offset-4 hover:underline">
+                <button type="button" onClick={reset} className="mt-8 text-sm font-semibold text-brand-bright underline-offset-4 hover:underline">
                   Start a new inquiry
                 </button>
               </div>
             ) : (
               <form onSubmit={onSubmit} noValidate className="rounded-2xl border border-white/10 bg-ink-2/80 p-6 backdrop-blur md:p-10" aria-describedby="form-required-note">
                 {showSummary && errorList.length > 0 && (
-                  <div ref={summaryRef} tabIndex={-1} role="alert" className="mb-8 rounded-xl border border-[#ff8a65]/50 bg-[#ff8a65]/10 p-4 text-sm outline-none">
+                  <div ref={summaryRef} tabIndex={-1} role="alert" className="mb-8 rounded-xl border border-[#ff6b6b]/50 bg-[#ff6b6b]/10 p-4 text-sm outline-none">
                     <p className="font-semibold text-bone">Please fix {errorList.length} {errorList.length === 1 ? 'field' : 'fields'}:</p>
                     <ul className="mt-2 list-disc space-y-1 pl-5 text-bone/80">
                       {errorList.map(([k, msg]) => (
                         <li key={k}>
-                          <a href={`#${k}`} onClick={(e) => { e.preventDefault(); document.getElementById(k)?.focus() }} className="underline underline-offset-2 hover:text-orange">
+                          <a href={`#${k}`} onClick={(e) => { e.preventDefault(); document.getElementById(k)?.focus() }} className="underline underline-offset-2 hover:text-brand-bright">
                             {LABELS[k]}
                           </a>{' '}
                           — {msg}
@@ -226,7 +228,7 @@ export function Contact() {
                   </div>
                 )}
                 {status === 'error' && (
-                  <div role="alert" className="mb-8 rounded-xl border border-[#ff8a65]/50 bg-[#ff8a65]/10 p-4 text-sm text-bone">
+                  <div role="alert" className="mb-8 rounded-xl border border-[#ff6b6b]/50 bg-[#ff6b6b]/10 p-4 text-sm text-bone">
                     {serverError}
                   </div>
                 )}
@@ -271,14 +273,14 @@ export function Contact() {
                         </>
                       ) : (
                         <>
-                          {FORM_ENDPOINT ? 'Request a bid' : 'Request a bid (demo mode)'} <ArrowUpRight size={18} />
+                          {FORM_ENDPOINT ? BID_LABEL : `${BID_LABEL} (demo mode)`} <ArrowUpRight size={18} />
                         </>
                       )}
                     </MagneticButton>
                   </div>
                 </div>
                 <p id="form-required-note" className="mt-6 text-xs text-bone/40">
-                  <span className="text-orange">*</span> Required fields. Your information is only used to respond to your inquiry.
+                  <span className="text-brand-bright">*</span> Required fields. Your information is only used to respond to your inquiry.
                 </p>
               </form>
             )}

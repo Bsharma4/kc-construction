@@ -1,6 +1,6 @@
 /**
  * CUSTOMER REVIEWS
- * Add real, verified reviews here (e.g. copied with permission from the K&C Construction Facebook page).
+ * Add real, verified reviews here (e.g. copied with permission from the K&S Construction Facebook page).
  * Do not add invented reviews. While this list is empty the Reviews section shows an invitation instead.
  *
  * Example entry:

@@ -41,11 +41,11 @@ export function Services() {
           <SectionHeading
             index="02"
             eyebrow="Our services · Waterloo, Illinois"
-            lines={['Eleven services.', <>One <span className="text-orange">family team.</span></>]}
+            lines={['Eleven services.', <>One <span className="text-brand-bright">family team.</span></>]}
             intro="From the first dig to the last fence post — residential construction, remodeling, concrete, site work and outdoor improvements handled by one local crew."
           />
           <p className="flex max-w-xs items-start gap-2 text-xs leading-relaxed text-bone/50">
-            <Info size={14} className="mt-0.5 shrink-0 text-orange" />
+            <Info size={14} className="mt-0.5 shrink-0 text-brand-bright" />
             Based in Waterloo, Illinois · Licensed &amp; insured · Call for a bid on any of these services.
           </p>
         </div>
@@ -57,7 +57,7 @@ export function Services() {
               role="tab"
               aria-selected={filter === c}
               onClick={() => setFilter(c)}
-              className={`rounded-full border px-4 py-2 text-xs font-medium tracking-wide transition-all duration-300 ${filter === c ? 'border-orange bg-orange text-ink' : 'border-bone/15 text-bone/70 hover:border-bone/40 hover:text-bone'}`}
+              className={`rounded-full border px-4 py-2 text-xs font-medium tracking-wide transition-all duration-300 ${filter === c ? 'border-brand bg-brand text-white' : 'border-bone/15 text-bone/70 hover:border-bone/40 hover:text-bone'}`}
             >
               {c}
               <span className="ml-1.5 font-mono opacity-60">
@@ -82,7 +82,7 @@ export function Services() {
                 )}
                 <div className="relative flex h-full flex-col">
                   <div className="flex items-start justify-between">
-                    <span className="grid h-12 w-12 place-items-center rounded-full border border-bone/15 text-orange transition-all duration-500 group-hover:rotate-[-12deg] group-hover:border-orange group-hover:bg-orange group-hover:text-ink">
+                    <span className="grid h-12 w-12 place-items-center rounded-full border border-bone/15 text-brand-bright transition-all duration-500 group-hover:rotate-[-12deg] group-hover:border-brand group-hover:bg-brand group-hover:text-white">
                       <Icon size={20} strokeWidth={1.6} />
                     </span>
                     <span className="font-mono text-[0.65rem] text-bone/35">{String(idx).padStart(2, '0')}</span>
@@ -91,10 +91,10 @@ export function Services() {
                   <p className="mt-3 text-sm leading-relaxed text-bone/55 transition-colors group-hover:text-bone/80">{s.description}</p>
                   <div className="mt-auto flex items-center justify-between pt-6">
                     <span className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-bone/35">{s.category}</span>
-                    <ArrowUpRight size={18} className="translate-y-2 text-orange opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100" />
+                    <ArrowUpRight size={18} className="translate-y-2 text-brand-bright opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100" />
                   </div>
                 </div>
-                <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-orange transition-transform duration-700 group-hover:scale-x-100" />
+                <span className="absolute bottom-0 left-0 h-[2px] w-full origin-left scale-x-0 bg-brand transition-transform duration-700 group-hover:scale-x-100" />
               </li>
             )
           })}
